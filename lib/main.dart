@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/screen/display.dart';
 
@@ -32,7 +33,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
+  @override
+  void initState() {
+    super.initState();
+    Firebase.initializeApp().whenComplete(() { 
+      print("completed");
+      setState(() {});
+    });
+  }
   @override
   Widget build(BuildContext context) {
       return DefaultTabController(
